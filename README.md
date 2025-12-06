@@ -44,5 +44,9 @@ The Upsell: You can explicitly state: "The static EKF tracks dynamics within 0.5
 
 Graph shows that the resistance from the EKF isnt consistant with the resistance of the battery plant. upon inspection, I fixed this issue but changing the code.
 
+<img width="555" height="398" alt="Screenshot 2025-12-06 at 2 55 27 PM" src="https://github.com/user-attachments/assets/91c0937b-c7a8-422b-a5f1-00b765e12836" />
 
-blob:https://gemini.google.com/ccc28b68-ea83-4907-861b-2c8294e01645<img width="1518" height="1088" alt="image" src="https://github.com/user-attachments/assets/e9a58f18-4381-48f3-9b76-0b3e08eee57e" />
+<img width="1518" height="1088" alt="image" src="https://github.com/user-attachments/assets/e9a58f18-4381-48f3-9b76-0b3e08eee57e" />
+
+<img width="1512" height="982" alt="Screenshot 2025-12-06 at 3 44 17 PM" src="https://github.com/user-attachments/assets/036b0414-bbb3-4ecd-b32d-d664fa40bc6f" />
+
