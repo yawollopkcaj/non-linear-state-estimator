@@ -41,3 +41,5 @@ Don't hide this. This is the most valuable part of the project.
 The Story: This gap proves that static models represent a limitation. You are using a fixed resistance (R_int = 0.658), but the real battery's resistance is changing constantly with temperature and SOC.
 
 The Upsell: You can explicitly state: "The static EKF tracks dynamics within 0.5%, but the persistent offset demonstrates the necessity for the Adaptive EKF (my next step) to learn the resistance in real-time."
+
+Graph shows that the resistance from the EKF isnt consistant with the resistance of the battery plant. upon inspection, I fixed this issue but changing the code.
