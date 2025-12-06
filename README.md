@@ -44,9 +44,12 @@ The Upsell: You can explicitly state: "The static EKF tracks dynamics within 0.5
 
 Graph shows that the resistance from the EKF isnt consistant with the resistance of the battery plant. upon inspection, I fixed this issue but changing the code.
 
+After making EKF use dynamic resistances:
 <img width="555" height="398" alt="Screenshot 2025-12-06 at 2 55 27 PM" src="https://github.com/user-attachments/assets/91c0937b-c7a8-422b-a5f1-00b765e12836" />
 
+Accidentally removing dynamic resistances in EKF:
 <img width="1518" height="1088" alt="image" src="https://github.com/user-attachments/assets/e9a58f18-4381-48f3-9b76-0b3e08eee57e" />
 
+After tuning simulation operating temperature (EKF assumes constant temp at 296.15 K:
 <img width="1512" height="982" alt="Screenshot 2025-12-06 at 3 44 17 PM" src="https://github.com/user-attachments/assets/036b0414-bbb3-4ecd-b32d-d664fa40bc6f" />
 
