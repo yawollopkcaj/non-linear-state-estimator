@@ -43,3 +43,6 @@ The Story: This gap proves that static models represent a limitation. You are us
 The Upsell: You can explicitly state: "The static EKF tracks dynamics within 0.5%, but the persistent offset demonstrates the necessity for the Adaptive EKF (my next step) to learn the resistance in real-time."
 
 Graph shows that the resistance from the EKF isnt consistant with the resistance of the battery plant. upon inspection, I fixed this issue but changing the code.
+
+
+blob:https://gemini.google.com/ccc28b68-ea83-4907-861b-2c8294e01645<img width="1518" height="1088" alt="image" src="https://github.com/user-attachments/assets/e9a58f18-4381-48f3-9b76-0b3e08eee57e" />
