@@ -45,6 +45,7 @@ The Upsell: You can explicitly state: "The static EKF tracks dynamics within 0.5
 Graph shows that the resistance from the EKF isnt consistant with the resistance of the battery plant. upon inspection, I fixed this issue but changing the code.
 
 After making EKF use dynamic resistances:
+
 <img width="555" height="398" alt="Screenshot 2025-12-06 at 2 55 27 PM" src="https://github.com/user-attachments/assets/91c0937b-c7a8-422b-a5f1-00b765e12836" />
 
 Accidentally removing dynamic resistances in EKF:
