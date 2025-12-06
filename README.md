@@ -17,3 +17,27 @@ The Result: The battery is sagging more than the EKF expects. The EKF misinterpr
 Conclusion
 
 Your setup is correct. The error you are seeing is a valid physical result of approximating a non-linear battery with a constant-resistance Kalman Filter. You can confidently put this graph in your report and explain exactly why the gap exists—judges love that level of understanding.
+
+<img width="555" height="398" alt="Screenshot 2025-12-06 at 2 55 27 PM" src="https://github.com/user-attachments/assets/0269ccfc-9b45-4ef8-bc11-820846c71549" />
+
+This graph is the "Money Plot." This is exactly what a judge or recruiter wants to see because it proves your BMS isn't just a simple calculator—it is handling dynamic, chaotic race conditions correctly.
+
+Here is the breakdown of why this graph is a success and how to frame it.
+
+1. It Handles "Regen" Perfectly
+
+Notice the little upward bumps in the line (e.g., at T=405 and T=425)?
+
+Physics: That is your Regenerative Braking (the -40A pulse) pushing energy back into the pack.
+
+The Win: Your EKF (Blue) tracks the Real SOC (Yellow) perfectly during these reversals. It doesn't get confused when current flips direction. This proves your sign conventions (+/-) and matrix math are solid.
+
+2. The "Offset" is actually a Feature
+
+You can still see the Blue line is sitting slightly below the Yellow line (about 0.2% error).
+
+Don't hide this. This is the most valuable part of the project.
+
+The Story: This gap proves that static models represent a limitation. You are using a fixed resistance (R_int = 0.658), but the real battery's resistance is changing constantly with temperature and SOC.
+
+The Upsell: You can explicitly state: "The static EKF tracks dynamics within 0.5%, but the persistent offset demonstrates the necessity for the Adaptive EKF (my next step) to learn the resistance in real-time."
