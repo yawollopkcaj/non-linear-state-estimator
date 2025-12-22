@@ -121,7 +121,7 @@ This integration allowed for the optimization of covariance matrices ($Q/R$) to 
   <img src="https://github.com/user-attachments/assets/431b2c1b-7c6d-455f-ac49-b8ed809cc69c" alt="Full Vehicle Simulation" width="600">
 </p>
 
-## Source Code (Modular Architecture)
+## Source Code
 This project is split into three decoupled repositories to ensure modularity. 
 * **[sim](https://github.com/UBCFormulaElectric/sim):** Main vehicle model simulation repository for UBC Formula Electric.
 * **[battery model]():** battery model simulation repository.
