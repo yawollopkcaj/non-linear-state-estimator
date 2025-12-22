@@ -6,7 +6,7 @@ This project implements a **discrete-time Extended Kalman Filter (EKF)** to esti
 
 Designed using MATLAB/Simulink and Simscape Electrical, the system moves beyond simple Coulomb Counting by fusing current integration with non-linear Open Circuit Voltage (OCV) measurements, achieving <0.1% estimation error in validated simulations.
 
-Tech Stack: MATLAB, Simulink, Simscape Electrical, Control Theory, Sensor Fusion.
+**Tech Stack:** MATLAB, Simulink, Simscape Electrical, Control Theory, Sensor Fusion.
 
 ## Performance under Dynamic Load (The "Money Plot")
 
