@@ -29,7 +29,12 @@ The system was stress-tested using a **US06-style** dynamic drive cycle, simulat
 
 During initial development using a Zeroth-Order Static Model (Constant Resistance), a persistent estimation offset of ~0.2% was observed at high SOC, despite perfect Coulomb counting.
 
-<img width="1518" alt="Static Model Offset" src="https://github.com/user-attachments/assets/e9a58f18-4381-48f3-9b76-0b3e08eee57e" />
+<p align="center">
+<caption><b>Figure 2: Static Model Offset</b></caption>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e9a58f18-4381-48f3-9b76-0b3e08eee57e" alt="Static Model Offset" width="600">
+</p>
 
 ## The Investigation:
 
