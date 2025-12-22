@@ -115,7 +115,7 @@ To validate the BMS logic beyond isolated unit tests, the battery model was inte
 This integration allowed for the optimization of covariance matrices ($Q/R$) to minimize estimation lag during the specific high-current transients experienced in an electric race car, ensuring the system is race-ready.
 
 <p align="center">
-<caption><b>Figure 6: Full Vehicle Simulation</b></caption>
+<caption><b>Figure 6: Full Vehicle Simulation Diagram</b></caption>
 </p>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/431b2c1b-7c6d-455f-ac49-b8ed809cc69c" alt="Full Vehicle Simulation" width="600">
