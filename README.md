@@ -121,6 +121,14 @@ This integration allowed for the optimization of covariance matrices ($Q/R$) to 
   <img src="https://github.com/user-attachments/assets/431b2c1b-7c6d-455f-ac49-b8ed809cc69c" alt="Full Vehicle Simulation" width="600">
 </p>
 
+## Source Code (Modular Architecture)
+This project is split into three decoupled repositories to ensure modularity. 
+* **[sim](https://github.com/UBCFormulaElectric/sim):** Main vehicle model simulation repository for UBC Formula Electric.
+* **[battery model]():** battery model simulation repository.
+
 ## Future Roadmap: Adaptive EKF (AEKF)
 
 While the current Dynamic EKF handles known non-linearities, it relies on a pre-characterized lookup table. The next phase of this project involves implementing a **Dual-Estimation Adaptive EKF** to estimate both SOC (State) and SOH/Internal Resistance (Parameter) concurrently in real-time.
+
+---
+*Created for UBC Formula Electric (2025).*
