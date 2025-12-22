@@ -12,7 +12,12 @@ Designed using MATLAB/Simulink and Simscape Electrical, the system moves beyond 
 
 The system was stress-tested using a **US06-style** dynamic drive cycle, simulating high-current discharge (acceleration) and sharp negative current spikes (regenerative braking).
 
-<img width="555" alt="Dynamic Race Lap Performance" src="https://github.com/user-attachments/assets/0269ccfc-9b45-4ef8-bc11-820846c71549" />
+<p align="center">
+<caption><b>Figure 1: Dynamic Race Lap Performance</b></caption>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0269ccfc-9b45-4ef8-bc11-820846c71549" alt="Dynamic Race Lap Performance" width="600">
+</p>
 
 ## Key Engineering Insights from this Graph:
 
@@ -28,15 +33,15 @@ During initial development using a Zeroth-Order Static Model (Constant Resistanc
 
 ## The Investigation:
 
-Observation: The EKF consistently underestimated SOC in the 90-100% range.
+* **Observation:** The EKF consistently underestimated SOC in the 90-100% range.
 
-Physics: The Molicel P30B cell chemistry exhibits a "hockey stick" impedance curve (resistance rises sharply at high SOC).
+* **Physics:** The Molicel P30B cell chemistry exhibits a "hockey stick" impedance curve (resistance rises sharply at high SOC).
 
-The Conflict: The Plant (Simscape) was modeling this non-linear resistance rise (~0.70 $\Omega$), while the EKF was assuming a static average (~0.658 $\Omega$).
+* **The Conflict:** The Plant (Simscape) was modeling this non-linear resistance rise (~0.70 $\Omega$), while the EKF was assuming a static average (~0.658 $\Omega$).
 
-The Result: The battery sagged more than the model expected. The EKF interpreted this extra voltage drop as "Low SOC" rather than "High Resistance."
+* **The Result:** The battery sagged more than the model expected. The EKF interpreted this extra voltage drop as "Low SOC" rather than "High Resistance."
 
-Analysis: "Observed minor estimation offset at high SOC due to unmodeled impedance non-linearity. Validated that dynamic resistance tracking (Adaptive EKF) would resolve this 0.2% error."
+* **Analysis:** "Observed minor estimation offset at high SOC due to unmodeled impedance non-linearity. Validated that dynamic resistance tracking (Adaptive EKF) would resolve this 0.2% error."
 
 ## Implementation: Dynamic Resistance & Temperature
 
@@ -60,7 +65,12 @@ v_est_pred = v_ocv_pred - (current_A * r_int_pred);
 **Result after Implementation:**
 The estimation error was effectively eliminated, resulting in near-perfect convergence.
 
-<img width="555" alt="Dynamic Resistance Fix" src="https://github.com/user-attachments/assets/91c0937b-c7a8-422b-a5f1-00b765e12836" />
+<p align="center">
+<caption><b>Figure 2: Dynamic Resistance Fix</b></caption>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/91c0937b-c7a8-422b-a5f1-00b765e12836" alt="Dynamic Resistance Fix" width="600">
+</p>
 
 ## Validation Strategy: Breaking the "Tautology"
 
@@ -68,14 +78,19 @@ A common pitfall in BMS simulation is creating a "Tautology"—where the Model p
 
 To validate the robustness of the algorithm, I introduced controlled Parameter Mismatches to simulate production variance and aging.
 
-Test Case: Resistance Mismatch (Aging Simulation)
+**Test Case: Resistance Mismatch (Aging Simulation)**
 
-Condition: Plant Resistance scaled by 1.05x (5% degradation). Model Resistance kept at nominal.
+* **Condition:** Plant Resistance scaled by 1.05x (5% degradation). Model Resistance kept at nominal.
 
-Outcome: The EKF successfully converged despite the model mismatch, demonstrating the filter's ability to prioritize voltage measurement updates ($K$ gain) when prediction errors accumulate.
+* **Outcome:** The EKF successfully converged despite the model mismatch, demonstrating the filter's ability to prioritize voltage measurement updates ($K$ gain) when prediction errors accumulate.
 
-<img width="1512" alt="Resistance Mismatch Test" src="https://github.com/user-attachments/assets/7f981f49-e57e-4d11-b341-6d87bb3ab146" />
+<p align="center">
+<caption><b>Figure 3: Resistance Mismatch Test</b></caption>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7f981f49-e57e-4d11-b341-6d87bb3ab146" alt="Resistance Mismatch Test" width="600">
+</p>
 
 ## Future Roadmap: Adaptive EKF (AEKF)
 
-While the current Dynamic EKF handles known non-linearities, it relies on a pre-characterized lookup table. The next phase of this project involves implementing a Dual-Estimation Adaptive EKF to estimate both SOC (State) and SOH/Internal Resistance (Parameter) concurrently in real-time.
+While the current Dynamic EKF handles known non-linearities, it relies on a pre-characterized lookup table. The next phase of this project involves implementing a **Dual-Estimation Adaptive EKF** to estimate both SOC (State) and SOH/Internal Resistance (Parameter) concurrently in real-time.
