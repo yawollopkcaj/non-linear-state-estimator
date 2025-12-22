@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project implements a discrete-time Extended Kalman Filter (EKF) to estimate the State of Charge (SOC) of a 140S 5P Li-Ion Battery Pack (Molicel P30B chemistry) under dynamic race conditions.
+This project implements a **discrete-time Extended Kalman Filter (EKF)** to estimate the State of Charge (SOC) of a 140S 5P Li-Ion Battery Pack (Molicel P30B chemistry) under dynamic race conditions.
 
 Designed using MATLAB/Simulink and Simscape Electrical, the system moves beyond simple Coulomb Counting by fusing current integration with non-linear Open Circuit Voltage (OCV) measurements, achieving <0.1% estimation error in validated simulations.
 
@@ -10,15 +10,15 @@ Tech Stack: MATLAB, Simulink, Simscape Electrical, Control Theory, Sensor Fusion
 
 ## Performance under Dynamic Load (The "Money Plot")
 
-The system was stress-tested using a US06-style dynamic drive cycle, simulating high-current discharge (acceleration) and sharp negative current spikes (regenerative braking).
+The system was stress-tested using a **US06-style** dynamic drive cycle, simulating high-current discharge (acceleration) and sharp negative current spikes (regenerative braking).
 
 <img width="555" alt="Dynamic Race Lap Performance" src="https://github.com/user-attachments/assets/0269ccfc-9b45-4ef8-bc11-820846c71549" />
 
 ## Key Engineering Insights from this Graph:
 
-Regen Robustness: The EKF (Blue) tracks the Real SOC (Yellow) perfectly during regenerative braking pulses (e.g., at T=405s). This verifies the stability of the Jacobian linearization even when current polarity flips.
+1. **Regen Robustness:** The EKF (Blue) tracks the Real SOC (Yellow) perfectly during regenerative braking pulses (e.g., at T=405s). This verifies the stability of the Jacobian linearization even when current polarity flips.
 
-Transient Tracking: The filter maintains lock during 100A+ current steps, proving that the Process Noise ($Q$) and Measurement Noise ($R$) covariance matrices are tuned correctly for high-dynamic applications.
+2. **Transient Tracking:** The filter maintains lock during 100A+ current steps, proving that the Process Noise ($Q$) and Measurement Noise ($R$) covariance matrices are tuned correctly for high-dynamic applications.
 
 ## Root Cause Analysis: The "Impedance Gap"
 
