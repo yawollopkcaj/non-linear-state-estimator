@@ -89,7 +89,7 @@ v_est_pred = v_ocv_pred - (current_A * r_int_pred);
   <img src="https://github.com/user-attachments/assets/91c0937b-c7a8-422b-a5f1-00b765e12836" alt="Dynamic Resistance Fix" width="600">
 </p>
 
-## Validation Strategy: Breaking the "Tautology"
+## Validation Strategy:
 
 A common pitfall in BMS simulation is creating a "Tautology"—where the Model parameters perfectly match the Plant parameters ($X = X$). While this verifies the code is bug-free, it does not validate real-world performance.
 
@@ -122,7 +122,7 @@ This integration allowed for the optimization of covariance matrices ($Q/R$) to 
 </p>
 
 ## Source Code
-This project is split into three decoupled repositories to ensure modularity. 
+This project is split into two repositories to ensure modularity. 
 * **[sim](https://github.com/UBCFormulaElectric/sim):** Main vehicle model simulation repository for UBC Formula Electric.
 * **[battery model]():** battery model simulation repository.
 
