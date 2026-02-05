@@ -38,7 +38,7 @@ The system was stress-tested using a **US06-style** dynamic drive cycle, simulat
 
 2. **Transient Tracking:** The filter maintains lock during 100A+ current steps, proving that the Process Noise ($Q$) and Measurement Noise ($R$) covariance matrices are tuned correctly for high-dynamic applications.
 
-## Root Cause Analysis: The "Impedance Gap"
+## Troubleshooting Diary
 
 During initial development using a Zeroth-Order Static Model (Constant Resistance), a persistent estimation offset of ~0.2% was observed at high SOC, despite perfect Coulomb counting.
 
@@ -91,7 +91,7 @@ v_est_pred = v_ocv_pred - (current_A * r_int_pred);
 
 ## Validation Strategy:
 
-A common pitfall in BMS simulation is creating a "Tautology"—where the Model parameters perfectly match the Plant parameters ($X = X$). While this verifies the code is bug-free, it does not validate real-world performance.
+A common pitfall in BMS simulation is creating a "Tautology", where the Model parameters perfectly match the Plant parameters ($X = X$). While this verifies the code is bug-free, it does not validate real-world performance.
 
 To validate the robustness of the algorithm, I introduced controlled Parameter Mismatches to simulate production variance and aging.
 
