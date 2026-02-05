@@ -32,7 +32,7 @@ The system was stress-tested using a **US06-style** dynamic drive cycle, simulat
   <img src="https://github.com/user-attachments/assets/0269ccfc-9b45-4ef8-bc11-820846c71549" alt="Dynamic Race Lap Performance" width="600">
 </p>
 
-**Key Engineering Insights from this Graph:**
+**What this graph is telling us:**
 
 1. **Regen Robustness:** The EKF (Blue) tracks the Real SOC (Yellow) perfectly during regenerative braking pulses (e.g., at T=405s). This verifies the stability of the Jacobian linearization even when current polarity flips.
 
