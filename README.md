@@ -21,7 +21,7 @@ I engineered custom Simulink interface blocks to bridge the continuous-time phys
   <img src="https://github.com/user-attachments/assets/87f6f032-1db4-4632-b7b4-094ffdf7afc2" alt="Battery Model Simulink Diagram" width="600">
 </p>
 
-## Performance under Dynamic Load (The "Money Plot")
+## Performance under Dynamic Load
 
 The system was stress-tested using a **US06-style** dynamic drive cycle, simulating high-current discharge (acceleration) and sharp negative current spikes (regenerative braking).
 
